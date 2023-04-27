@@ -13,9 +13,9 @@ namespace lab8
         }
     }
 
-    class BinaryTree<T>
+    class BinaryTree<T> where T : IComparable<T>
     {
-        private Node<T> head;
+        private Node<T> root;
         public BinaryTree(T value)
         {
             
@@ -23,30 +23,35 @@ namespace lab8
 
         public void Add(T value)
         {
-            if (head == null) 
+            Node<T> newNode = new Node<T>(value);
+            if (root == null) 
             {  
-                head = new Node<TNode>(value);
+                root = newNode;
+                return;
             }
-            else
+
+            while (true)
             {
-                if (value > head.Value)
+                if (value.CompareTo(root.Value) > 0)
+                {
+                    if (root.Left == null)
+                    {
+                        root.Left = newNode;
+                    }
+                    root = newNode;
+                }
+                else
                 {
 
                 }
             }
         }
-        class Node<TNode> : IComparable<TNode>
-        where TNode : IComparable<TNode>
+        class Node<TNode> where TNode : IComparable<TNode>
         {
             public TNode Value { get; private set; }
-            public TNode Left { get; set; }
-            public TNode Right { get; set; }
+            public Node<TNode> Left { get; set; }
+            public Node<TNode> Right { get; set; }
             public Node(TNode value) { Value = value; }
-
-            public int CompareTo(TNode other)
-            {
-                return Value.CompareTo(other);
-            }
         }
     }
 }
