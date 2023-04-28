@@ -41,16 +41,32 @@ namespace lab8
             if (Find(value) == null)
             {
                 Console.WriteLine("Nema...");
+                return;
+            }
+
+            Node<T> node = Find(value);
+            if (node.Right == null)
+            {
+                node = node.Left;
             }
             else
             {
-                Node<T> node = Find(value);
+                Node<T> newNode = node;
+                Node<T> parent;
+                while (node.Left != null)
+                {
+                    parent = node;
+                    node = node.Left;
+                }
+
+
 
             }
+
         }
         public class Node<TNode> where TNode : T
         {
-            public TNode Value { get; private set; }
+            public TNode Value { get; set; }
             public Node<TNode> Left { get; set; }
             public Node<TNode> Right { get; set; }
             public Node(TNode value) { Value = value; }
