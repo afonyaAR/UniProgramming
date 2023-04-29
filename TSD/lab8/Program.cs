@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace lab8
@@ -10,17 +11,27 @@ namespace lab8
     {
         static void Main(string[] args)
         {
+            BinaryTree<int> tree = new BinaryTree<int>();
+            tree.Add(6);
+            tree.Add(2);
+            tree.Add(7);
+            tree.Add(1);
+            tree.Add(3);
+            tree.Add(5);
+            tree.Add(4);
+            tree.Remove(2);
+            Console.WriteLine(tree.Contains(2));
         }
     }
 
     class BinaryTree<T> where T : IComparable<T>
     {
         private Node<T> root;
+        public int Count { get; private set; }
 
         public void Add(T value)
         {
             Node<T> newNode = new Node<T>(value);
-
             if (root == null) 
             {  
                 root = newNode;
@@ -29,6 +40,7 @@ namespace lab8
             {
                 root.Add(newNode);
             }
+            Count++;
         }
         public Node<T> Find (T value)
         {
@@ -51,19 +63,25 @@ namespace lab8
             }
             else
             {
-                Node<T> newNode = node;
-                Node<T> parent;
+                Node<T> supNode;
+                node = node.Right;
                 while (node.Left != null)
                 {
-                    parent = node;
-                    node = node.Left;
+                    node 
+                    supNode = supNode.Left;
                 }
-
-
-
+                T temp = supNode.Value;
+                supNode = null;
+                node.Value = temp;
             }
+            Count--;
+        }
+        public void SymmetricRound(BinaryTree<T> tree)
+        {
 
         }
+        public bool Contains(T value) { return (Find(value) != null); }
+        public void Clear() { root = null; Count = 0; }
         public class Node<TNode> where TNode : T
         {
             public TNode Value { get; set; }
