@@ -19,8 +19,8 @@ namespace lab8
             tree.Add(3);
             tree.Add(5);
             tree.Add(4);
-            tree.Remove(2);
-            Console.WriteLine(tree.Contains(2));
+            tree.Remove(3);
+            Console.WriteLine(tree.Contains(5));
         }
     }
 
@@ -46,33 +46,31 @@ namespace lab8
         {
             if (root == null) { return null; }
             
-            return root.Find(new Node<T>(value));
+            return root.Find(value);
         }
         public void Remove(T value)
         {
-            if (Find(value) == null)
+            Node<T> node = Find(value);
+
+            if (node == null)
             {
                 Console.WriteLine("Nema...");
                 return;
             }
 
-            Node<T> node = Find(value);
             if (node.Right == null)
             {
                 node = node.Left;
             }
             else
             {
-                Node<T> supNode;
-                node = node.Right;
-                while (node.Left != null)
+                Node<T> newNode = node.Right;
+                while (newNode.Left != null)
                 {
-                    node 
-                    supNode = supNode.Left;
+                    newNode = newNode.Left;
                 }
-                T temp = supNode.Value;
-                supNode = null;
-                node.Value = temp;
+                node.Value = newNode.Value;
+                newNode = null;
             }
             Count--;
         }
@@ -103,22 +101,22 @@ namespace lab8
                 }
             }
 
-            public Node<TNode> Find(Node<TNode> node)
+            public Node<TNode> Find(TNode value)
             {
-                if (node.Value.CompareTo(Value) == 0)
+                if (value.CompareTo(Value) == 0)
                 {
-                    return node;
+                    return this;
                 }
 
-                if (node.Value.CompareTo(Value) < 0)
+                if (value.CompareTo(Value) < 0)
                 {
                     if (Left == null) return null;
-                    return Left.Find(node);
+                    return Left.Find(value);
                 }
                 else
                 {
                     if (Right == null) return null;
-                    return Right.Find(node);
+                    return Right.Find(value);
                 }
             }
         }
