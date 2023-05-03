@@ -13,14 +13,14 @@ namespace lab8
         {
             BinaryTree<int> tree = new BinaryTree<int>();
             tree.Add(6);
-            tree.Add(2);
+            tree.Add(22);
             tree.Add(7);
-            tree.Add(1);
-            tree.Add(3);
+            tree.Add(10);
+            tree.Add(-3);
             tree.Add(5);
             tree.Add(4);
-            tree.Remove(3);
             Console.WriteLine(tree.Contains(5));
+            tree.SymmetricRound();
         }
     }
 
@@ -65,21 +65,24 @@ namespace lab8
             else
             {
                 Node<T> newNode = node.Right;
+                Node<T> parent = null;
                 while (newNode.Left != null)
                 {
+                    parent = newNode;
                     newNode = newNode.Left;
                 }
                 node.Value = newNode.Value;
-                newNode = null;
+                parent.Left = null;
             }
             Count--;
         }
-        public void SymmetricRound(BinaryTree<T> tree)
+        public void SymmetricRound()
         {
-
+            root.Traversal();
         }
         public bool Contains(T value) { return (Find(value) != null); }
         public void Clear() { root = null; Count = 0; }
+
         public class Node<TNode> where TNode : T
         {
             public TNode Value { get; set; }
@@ -118,6 +121,13 @@ namespace lab8
                     if (Right == null) return null;
                     return Right.Find(value);
                 }
+            }
+
+            public void Traversal()
+            {
+                Left?.Traversal();
+                Console.WriteLine(Value);
+                Right?.Traversal();
             }
         }
     }
