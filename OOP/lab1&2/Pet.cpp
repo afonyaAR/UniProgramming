@@ -11,8 +11,8 @@ void Pet::setHealthPer(int healthPer)
 {
     if (healthPer < 0 || healthPer > 100)
     {
-        cout << "Óñòàíîâëåíî íåâîçìîæíîå çíà÷åíèå çäîðîâüÿ.";
-        cout << "Óñòàíîâëåíî íà÷àëüíîå çíà÷åíèå çäîðîâüÿ: 50";
+        cout << "Ã“Ã±Ã²Ã Ã­Ã®Ã¢Ã«Ã¥Ã­Ã® Ã­Ã¥Ã¢Ã®Ã§Ã¬Ã®Ã¦Ã­Ã®Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã§Ã¤Ã®Ã°Ã®Ã¢Ã¼Ã¿.";
+        cout << "Ã“Ã±Ã²Ã Ã­Ã®Ã¢Ã«Ã¥Ã­Ã® Ã­Ã Ã·Ã Ã«Ã¼Ã­Ã®Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã§Ã¤Ã®Ã°Ã®Ã¢Ã¼Ã¿: 50";
         this->healthPer = 50;
     }
     else this->healthPer = healthPer;
@@ -21,8 +21,8 @@ void Pet::setSaturationPer(int saturationPer)
 {
     if (saturationPer < 0 || saturationPer > 100)
     {
-        cout << "Óñòàíîâëåíî íåâîçìîæíîå çíà÷åíèå ñûòîñòè.";
-        cout << "Óñòàíîâëåíî íà÷àëüíîå çíà÷åíèå ñûòîñòè: 0";
+        cout << "Ã“Ã±Ã²Ã Ã­Ã®Ã¢Ã«Ã¥Ã­Ã® Ã­Ã¥Ã¢Ã®Ã§Ã¬Ã®Ã¦Ã­Ã®Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã±Ã»Ã²Ã®Ã±Ã²Ã¨.";
+        cout << "Ã“Ã±Ã²Ã Ã­Ã®Ã¢Ã«Ã¥Ã­Ã® Ã­Ã Ã·Ã Ã«Ã¼Ã­Ã®Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã±Ã»Ã²Ã®Ã±Ã²Ã¨: 0";
         this->saturationPer = 0;
     }
     else this->saturationPer = saturationPer;
@@ -32,41 +32,41 @@ void Pet::feedPet(int amount)
 {
     if (saturationPer == 100)
     {
-        cout << breed << " " << name << " ñûòûé\n";
+        cout << breed << " " << name << " Ã±Ã»Ã²Ã»Ã©\n";
     }
     else
     {
         int eaten = saturationPer + amount;
         eatenFood = eaten > 100 ? 100 - saturationPer : amount;
         saturationPer = eaten > 100 ? 100 : eaten;
-        cout << breed << " " << name << " ñúåë " << eatenFood << "% îò ñâîåé ñûòîñòè.\n";
-        cout << "Ñûòîñòü ïèòîìöà " << name << ": " << saturationPer << "%\n";
+        cout << breed << " " << name << " Ã±ÃºÃ¥Ã« " << eatenFood << "% Ã®Ã² Ã±Ã¢Ã®Ã¥Ã© Ã±Ã»Ã²Ã®Ã±Ã²Ã¨.\n";
+        cout << "Ã‘Ã»Ã²Ã®Ã±Ã²Ã¼ Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã  " << name << ": " << saturationPer << "%\n";
     }
     cout << endl;
 }
 
 void Pet::infoPet()
 {
-    cout << "Èìÿ ïèòîìöà: " << name << endl;
-    cout << "Ïîðîäà ïèòîìöà: " << breed << endl;
-    cout << "Çäîðîâüå ïèòîìöà: " << healthPer << endl;
-    cout << "Ñûòîñòü ïèòîìöà: " << saturationPer << endl;
+    cout << "ÃˆÃ¬Ã¿ Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << name << endl;
+    cout << "ÃÃ®Ã°Ã®Ã¤Ã  Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << breed << endl;
+    cout << "Ã‡Ã¤Ã®Ã°Ã®Ã¢Ã¼Ã¥ Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << healthPer << endl;
+    cout << "Ã‘Ã»Ã²Ã®Ã±Ã²Ã¼ Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << saturationPer << endl;
     cout << endl;
 }
 void Pet::infoPet(string name, string breed)
 {
-    cout << "Èìÿ ïèòîìöà: " << name << endl;
-    cout << "Ïîðîäà ïèòîìöà: " << breed << endl;
-    cout << "Çäîðîâüå ïèòîìöà: " << healthPer << endl;
-    cout << "Ñûòîñòü ïèòîìöà: " << saturationPer << endl;
+    cout << "ÃˆÃ¬Ã¿ Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << name << endl;
+    cout << "ÃÃ®Ã°Ã®Ã¤Ã  Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << breed << endl;
+    cout << "Ã‡Ã¤Ã®Ã°Ã®Ã¢Ã¼Ã¥ Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << healthPer << endl;
+    cout << "Ã‘Ã»Ã²Ã®Ã±Ã²Ã¼ Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << saturationPer << endl;
     cout << endl;
 }
 void Pet::infoPet(string name, string breed, int healthPer, int saturationPer)
 {
-    cout << "Èìÿ ïèòîìöà: " << name << endl;
-    cout << "Ïîðîäà ïèòîìöà: " << breed << endl;
-    cout << "Çäîðîâüå ïèòîìöà: " << healthPer << endl;
-    cout << "Ñûòîñòü ïèòîìöà: " << saturationPer << endl;
+    cout << "ÃˆÃ¬Ã¿ Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << name << endl;
+    cout << "ÃÃ®Ã°Ã®Ã¤Ã  Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << breed << endl;
+    cout << "Ã‡Ã¤Ã®Ã°Ã®Ã¢Ã¼Ã¥ Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << healthPer << endl;
+    cout << "Ã‘Ã»Ã²Ã®Ã±Ã²Ã¼ Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã : " << saturationPer << endl;
     cout << endl;
 }
 
@@ -74,13 +74,13 @@ void Pet::walkPet(int hours)
 {
     if (hours > saturationPer / 10)
     {
-        cout << "Ñëèøêîì äëèííàÿ ïðîãóëêà, ïèòîìåö íå âûäåðæèò.\n";
+        cout << "Ã‘Ã«Ã¨Ã¸ÃªÃ®Ã¬ Ã¤Ã«Ã¨Ã­Ã­Ã Ã¿ Ã¯Ã°Ã®Ã£Ã³Ã«ÃªÃ , Ã¯Ã¨Ã²Ã®Ã¬Ã¥Ã¶ Ã­Ã¥ Ã¢Ã»Ã¤Ã¥Ã°Ã¦Ã¨Ã².\n";
     }
     else
     {
         saturationPer -= hours * 10;
-        cout << breed << " " << name << " ïîãóëÿë " << hours << " ÷àñîâ.\n";
-        cout << "Ñûòîñòü ïèòîìöà " << name << ": " << saturationPer << "%\n";
+        cout << breed << " " << name << " Ã¯Ã®Ã£Ã³Ã«Ã¿Ã« " << hours << " Ã·Ã Ã±Ã®Ã¢.\n";
+        cout << "Ã‘Ã»Ã²Ã®Ã±Ã²Ã¼ Ã¯Ã¨Ã²Ã®Ã¬Ã¶Ã  " << name << ": " << saturationPer << "%\n";
     }
     cout << endl;
 }
