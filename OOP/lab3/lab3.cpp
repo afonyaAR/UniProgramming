@@ -1,14 +1,14 @@
 ﻿#include <iostream>
+#include "Time.h"
 using namespace std;
 
 int main()
 {
-    /*Создать класс Time для работы со временем в формате
-    «час:минута:секунда».Определить для класса бинарный оператор + 
-    для сложения с числом типа int – количество секунд, учитывая, что 
-    можно задавать число больше 59. Определить для класса функцию 
-    преобразования времени в секунды = int.
-
-    Написать программу, демонстрирующую работу с этим классом.*/
-    cout << "Hello World!\n";
+	Time lunchTime = Time(1, 24, 1);
+	Time breakfastTime = lunchTime + Time(1, 59, 1);
+	breakfastTime.ShowTime();
+	breakfastTime += 56;
+	breakfastTime.ShowTime();
+	breakfastTime += 43;
+	breakfastTime.ShowSeconds();
 }

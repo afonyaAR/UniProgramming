@@ -9,30 +9,13 @@ private:
 	int minutes;
 	int seconds;
 public:
-	Time(int hours = 0,
-		int minutes = 0,
-		int seconds = 0) 
-	{
-		int minsToAdd = 0;
-		int hrsToAdd = 0;
-		if (seconds < 0 || seconds > 59)
-		{
-			minsToAdd = seconds / 60;
-			this->seconds = seconds % 60;
-		}
-		if (hours < 0)
-		{
-			this->hours = 0;
-		}
-		else
-		{
-			this->hours = hours;
-		}
+	Time(): Time(0,0,0) {}
+	Time(int seconds) : Time(seconds/3600, seconds%3600/60, seconds%60) {}
+	Time(int hours, int minutes, int seconds);
+	void ShowTime();
+	void ShowSeconds();
+	friend Time operator+(const Time& time1, const Time& time2);
+	friend Time operator+=(Time& time, const int seconds);
 
-		if (minutes < 0 || minutes > 59)
-		{
-			this->minutes = 
-		}
-	}
 };
 
