@@ -7,36 +7,27 @@ class Pet
 private:
     string breed;
     string name;
-    int healthPer;
-    int saturationPer;
-    int eatenFood;
-
+    unsigned int health;
+    unsigned int saturation;
 public:
-    Pet(string breed = "овчарка",
-        string name = "баобик",
-        int healthPer = 100,
-        int saturationPer = 100)
-    {
-        this->breed = breed;
-        this->name = name;
-        this->healthPer = healthPer;
-        this->saturationPer = saturationPer;
-        this->eatenFood = 0;
-    }
+    Pet() : Pet("unknown_name", "unknown_breed", 0, 0) {};
+    Pet(string breed, string name, unsigned int healthPer, unsigned int saturationPer);
 
     string getBreed();
     string getName();
-    int getSaturationPer();
-    int getHealthPer();
+    int getSaturation();
+    int getHealth();
 
     void setBreed(string breed);
     void setName(string name);
-    void setHealthPer(int healthPer);
-    void setSaturationPer(int saturationPer);
+    void setHealth(unsigned int health);
+    void setSaturation(unsigned int saturation);
 
-    void feedPet(int amount = 10);
+    void feedPet();
+    void feedPet(unsigned int amount);
+
+    void walkPet() { walkPet(1); };
+    void walkPet(unsigned int hours);
+
     void infoPet();
-    void infoPet(string name, string breed);
-    void infoPet(string name, string breed, int healthPer, int saturationPer);
-    void walkPet(int hours = 1);
 };

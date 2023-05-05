@@ -1,86 +1,79 @@
 #include "Pet.h"
 
+Pet::Pet(string name, string breed, unsigned int health, unsigned int saturation)
+{
+    this->name = name;
+    this->breed = breed;
+    this->health = health;
+    this->saturation = saturation;
+}
+
 string Pet::getBreed() { return breed; };
 string Pet::getName() { return name; };
-int Pet::getSaturationPer() { return saturationPer; };
-int Pet::getHealthPer() { return healthPer; };
+int Pet::getSaturation() { return saturation; };
+int Pet::getHealth() { return health; };
 
 void Pet::setBreed(string breed) { this->breed = breed; }
 void Pet::setName(string name) { this->name = name; }
-void Pet::setHealthPer(int healthPer)
+void Pet::setHealth(unsigned int health) { this->health = health; }
+void Pet::setSaturation(unsigned int saturation)
 {
-    if (healthPer < 0 || healthPer > 100)
+    if (saturation > 100 || saturation < 0)
     {
-        cout << "Óñòàíîâëåíî íåâîçìîæíîå çíà÷åíèå çäîðîâüÿ.";
-        cout << "Óñòàíîâëåíî íà÷àëüíîå çíà÷åíèå çäîðîâüÿ: 50";
-        this->healthPer = 50;
-    }
-    else this->healthPer = healthPer;
-}
-void Pet::setSaturationPer(int saturationPer)
-{
-    if (saturationPer < 0 || saturationPer > 100)
-    {
-        cout << "Óñòàíîâëåíî íåâîçìîæíîå çíà÷åíèå ñûòîñòè.";
-        cout << "Óñòàíîâëåíî íà÷àëüíîå çíà÷åíèå ñûòîñòè: 0";
-        this->saturationPer = 0;
-    }
-    else this->saturationPer = saturationPer;
-}
-
-void Pet::feedPet(int amount)
-{
-    if (saturationPer == 100)
-    {
-        cout << breed << " " << name << " ñûòûé\n";
+        this->saturation = 100;
+        cout << "Wrong number (must be percent), default saturation = 100";
     }
     else
     {
-        int eaten = saturationPer + amount;
-        eatenFood = eaten > 100 ? 100 - saturationPer : amount;
-        saturationPer = eaten > 100 ? 100 : eaten;
-        cout << breed << " " << name << " ñúåë " << eatenFood << "% îò ñâîåé ñûòîñòè.\n";
-        cout << "Ñûòîñòü ïèòîìöà " << name << ": " << saturationPer << "%\n";
+        this->saturation = saturation;
+    }
+}
+
+void Pet::feedPet()
+{
+    saturation = 100;
+    cout << breed << " " << name << "now is full" << endl;
+    cout << endl;
+}
+void Pet::feedPet(unsigned int amount)
+{
+    if (saturation == 100)
+    {
+        cout << breed << " " << name << " is full and cant eat anymore" << endl;
+    }
+    else if (saturation + amount >= 100)
+    {
+        cout << breed << " " << name << " ate " << 100 - saturation << " and now full" << endl;
+        cout << "Remainings: " << (saturation + amount) % 100 << endl;
+        saturation = 100;
+    }
+    else
+    {
+        saturation += amount;
+        cout << breed << " " << name << " ate: " << amount << endl;
     }
     cout << endl;
 }
 
 void Pet::infoPet()
 {
-    cout << "Èìÿ ïèòîìöà: " << name << endl;
-    cout << "Ïîðîäà ïèòîìöà: " << breed << endl;
-    cout << "Çäîðîâüå ïèòîìöà: " << healthPer << endl;
-    cout << "Ñûòîñòü ïèòîìöà: " << saturationPer << endl;
-    cout << endl;
-}
-void Pet::infoPet(string name, string breed)
-{
-    cout << "Èìÿ ïèòîìöà: " << name << endl;
-    cout << "Ïîðîäà ïèòîìöà: " << breed << endl;
-    cout << "Çäîðîâüå ïèòîìöà: " << healthPer << endl;
-    cout << "Ñûòîñòü ïèòîìöà: " << saturationPer << endl;
-    cout << endl;
-}
-void Pet::infoPet(string name, string breed, int healthPer, int saturationPer)
-{
-    cout << "Èìÿ ïèòîìöà: " << name << endl;
-    cout << "Ïîðîäà ïèòîìöà: " << breed << endl;
-    cout << "Çäîðîâüå ïèòîìöà: " << healthPer << endl;
-    cout << "Ñûòîñòü ïèòîìöà: " << saturationPer << endl;
+    cout << "Name: " << name << endl;
+    cout << "Breed: " << breed << endl;
+    cout << "Health: " << health << endl;
+    cout << "Saturation: " << saturation << endl;
     cout << endl;
 }
 
-void Pet::walkPet(int hours)
+void Pet::walkPet(unsigned int hours)
 {
-    if (hours > saturationPer / 10)
+    if (hours > saturation / 10)
     {
-        cout << "Ñëèøêîì äëèííàÿ ïðîãóëêà, ïèòîìåö íå âûäåðæèò.\n";
+        cout << "This so much for this pet, try to feed them more or less walk" << endl;
     }
     else
     {
-        saturationPer -= hours * 10;
-        cout << breed << " " << name << " ïîãóëÿë " << hours << " ÷àñîâ.\n";
-        cout << "Ñûòîñòü ïèòîìöà " << name << ": " << saturationPer << "%\n";
+        saturation -= hours * 10;
+        cout << "After " << hours << " hours of walk " << breed << " " << name << " saturation is: " << saturation << endl;
     }
     cout << endl;
 }

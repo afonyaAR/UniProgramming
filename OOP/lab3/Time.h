@@ -15,7 +15,7 @@ public:
 	void ShowTime();
 	void ShowSeconds();
 	friend Time operator+(const Time& time1, const Time& time2);
+	friend Time operator+(const Time& time1, const int seconds);
 	friend Time operator+=(Time& time, const int seconds);
-
 };
 

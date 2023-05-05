@@ -31,6 +31,13 @@ Time operator+(const Time& time1, const Time& time2)
 	int newHours = time1.hours + time2.hours + newMinutes / 60;
 	return Time(newHours, newMinutes%60, newSeconds%60);
 }
+Time operator+(const Time& time, const int seconds)
+{
+	int newSeconds = time.seconds + seconds;
+	int newMinutes = time.minutes + newSeconds / 60;
+	int newHours = time.hours + newMinutes / 60;
+	return Time(newHours, newMinutes % 60, newSeconds % 60);
+}
 Time operator+=(Time& time, const int seconds)
 {
 	int newSeconds = time.seconds + seconds;
