@@ -23,7 +23,7 @@ public:
     void setHealth(unsigned int health);
     void setSaturation(unsigned int saturation);
 
-    void feedPet();
+    void feedPet() { feedPet(100); };
     void feedPet(unsigned int amount);
 
     void walkPet() { walkPet(1); };

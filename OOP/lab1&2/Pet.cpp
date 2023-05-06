@@ -29,12 +29,6 @@ void Pet::setSaturation(unsigned int saturation)
     }
 }
 
-void Pet::feedPet()
-{
-    saturation = 100;
-    cout << breed << " " << name << "now is full" << endl;
-    cout << endl;
-}
 void Pet::feedPet(unsigned int amount)
 {
     if (saturation == 100)
