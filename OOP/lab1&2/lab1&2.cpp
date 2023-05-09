@@ -6,31 +6,31 @@ void runUnitest()
 {
     Pet pets[2];
 
-    pets[0].setBreed("shpits");
-    pets[0].setName("Nastya");
-    pets[0].setHealth(100);
-    pets[0].setSaturation(100);
+    pets[0].SetBreed("shpits");
+    pets[0].SetName("Nastya");
+    pets[0].SetHealth(100);
+    pets[0].SetSaturation(100);
 
     pets[1] = Pet("sheepdog", "ZaakenZluken", 30, 40);
 
     for (int i = 0; i < 2; i++)
     {
-        pets[i].infoPet();
+        pets[i].InfoPet();
     }
 
-    pets[0].feedPet(50);
-    pets[0].walkPet(4);
-    pets[0].walkPet(3);
-    pets[0].walkPet();
-    pets[0].feedPet(50);
+    pets[0].FeedPet(50);
+    pets[0].WalkPet(4);
+    pets[0].WalkPet(3);
+    pets[0].WalkPet();
+    pets[0].FeedPet(50);
 
-    pets[1].feedPet(40);
-    pets[1].feedPet(40);
-    pets[1].walkPet(1);
+    pets[1].FeedPet(40);
+    pets[1].FeedPet(40);
+    pets[1].WalkPet(1);
 
     for (int i = 0; i < 2; i++)
     {
-        pets[i].infoPet();
+        pets[i].InfoPet();
     }
 }
 

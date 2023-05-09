@@ -13,21 +13,21 @@ public:
     Pet() : Pet("unknown_name", "unknown_breed", 0, 0) {};
     Pet(string breed, string name, unsigned int healthPer, unsigned int saturationPer);
 
-    string getBreed();
-    string getName();
-    int getSaturation();
-    int getHealth();
+    string GetBreed();
+    string GetName();
+    int GetSaturation();
+    int GetHealth();
 
-    void setBreed(string breed);
-    void setName(string name);
-    void setHealth(unsigned int health);
-    void setSaturation(unsigned int saturation);
+    void SetBreed(string breed);
+    void SetName(string name);
+    void SetHealth(unsigned int health);
+    void SetSaturation(unsigned int saturation);
 
-    void feedPet() { feedPet(100); };
-    void feedPet(unsigned int amount);
+    void FeedPet() { FeedPet(100); };
+    void FeedPet(unsigned int amount);
 
-    void walkPet() { walkPet(1); };
-    void walkPet(unsigned int hours);
+    void WalkPet() { WalkPet(1); };
+    void WalkPet(unsigned int hours);
 
-    void infoPet();
+    void InfoPet();
 };

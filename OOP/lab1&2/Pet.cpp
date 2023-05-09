@@ -8,15 +8,15 @@ Pet::Pet(string name, string breed, unsigned int health, unsigned int saturation
     this->saturation = saturation;
 }
 
-string Pet::getBreed() { return breed; };
-string Pet::getName() { return name; };
-int Pet::getSaturation() { return saturation; };
-int Pet::getHealth() { return health; };
+string Pet::GetBreed() { return breed; };
+string Pet::GetName() { return name; };
+int Pet::GetSaturation() { return saturation; };
+int Pet::GetHealth() { return health; };
 
-void Pet::setBreed(string breed) { this->breed = breed; }
-void Pet::setName(string name) { this->name = name; }
-void Pet::setHealth(unsigned int health) { this->health = health; }
-void Pet::setSaturation(unsigned int saturation)
+void Pet::SetBreed(string breed) { this->breed = breed; }
+void Pet::SetName(string name) { this->name = name; }
+void Pet::SetHealth(unsigned int health) { this->health = health; }
+void Pet::SetSaturation(unsigned int saturation)
 {
     if (saturation > 100 || saturation < 0)
     {
@@ -29,7 +29,7 @@ void Pet::setSaturation(unsigned int saturation)
     }
 }
 
-void Pet::feedPet(unsigned int amount)
+void Pet::FeedPet(unsigned int amount)
 {
     if (saturation == 100)
     {
@@ -49,7 +49,7 @@ void Pet::feedPet(unsigned int amount)
     cout << endl;
 }
 
-void Pet::infoPet()
+void Pet::InfoPet()
 {
     cout << "Name: " << name << endl;
     cout << "Breed: " << breed << endl;
@@ -58,7 +58,7 @@ void Pet::infoPet()
     cout << endl;
 }
 
-void Pet::walkPet(unsigned int hours)
+void Pet::WalkPet(unsigned int hours)
 {
     if (hours > saturation / 10)
     {
