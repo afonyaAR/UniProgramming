@@ -95,7 +95,7 @@ RMSE = np.sqrt(MSE)
 print("MAE: %f" % (MAE))
 print("RMSE: %f" % (RMSE))
 
-X_temp = [[200000, 250000, -1, 1500]]
+X_temp = [[1121121, 2121121, 10, 500]]
 print(model.predict(polynomial.fit_transform(X_temp)))
 
 # correlation matrix
