@@ -1,0 +1,8 @@
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\TSD\lab8_remake\lab8\bin\Debug\lab8.exe.config
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\TSD\lab8_remake\lab8\bin\Debug\lab8.exe
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\TSD\lab8_remake\lab8\bin\Debug\lab8.pdb
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\TSD\lab8_remake\lab8\obj\Debug\lab8.csproj.AssemblyReference.cache
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\TSD\lab8_remake\lab8\obj\Debug\lab8.csproj.SuggestedBindingRedirects.cache
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\TSD\lab8_remake\lab8\obj\Debug\lab8.csproj.CoreCompileInputs.cache
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\TSD\lab8_remake\lab8\obj\Debug\lab8.exe
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\TSD\lab8_remake\lab8\obj\Debug\lab8.pdb
