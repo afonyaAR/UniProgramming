@@ -9,6 +9,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 
+# settings
+pd.set_option('display.width', 400)
+pd.set_option('display.max_columns', 15)
+
+
 # data info
 # CP - себестоимость реализованной продукции
 # NOE - средняя численность работников
@@ -18,10 +23,10 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 # POP - рентабельность реализованной продукции
 # POS - рентабельность продаж
 # REV - выручка от реализации продукции
-# NP - чистая прибыль, убыток
 # REG - регион (regions)
 # YER - год (2016 -2021)
 # SIZ - размер (микроорганизация, малая орг-я, средняя орг-я)
+# NP - чистая прибыль, убыток
 
 
 # importing datasets
@@ -69,12 +74,26 @@ for region in range(len(df_REG)):
     additional_info.pop(0)
 
 
+# creating datafile
 df = pd.DataFrame(dataset, columns=["CP", "NOE", "SOE", "PV", "PFS", "POP", "POS", "REV", "REG", "SIZ", "YER", "NP"])
 le = LabelEncoder()
 
 df["REG"] = le.fit_transform(df["REG"])
 df["SIZ"] = le.fit_transform(df["SIZ"])
 
+
+# datafile, EDA - exploratory data analysis,
+# print(df)
+# print(df.describe())
+
+
+# correlation matrix
+plt.figure(figsize=(16,10))
+sns.heatmap(df.corr(), annot=True)
+plt.show()
+
+
+# polynomial regression
 X = df[["PFS", "REV", "POS", "SOE"]]
 y = df["NP"]
 
@@ -88,26 +107,80 @@ model.fit(X_train, y_train)
 
 predictions = model.predict(X_test)
 
+
+# residual plot (poly)
+residuals = y_test - predictions
+sns.scatterplot(x=y_test, y=residuals)
+plt.axhline(y=0, color='r', linestyle='--')
+plt.xlabel("Net profit")
+plt.ylabel("Residuals")
+plt.title("Residual Plot (poly)")
+plt.show()
+
+
+# calculating MAE, RMSE for polynomial regression
 MAE = mean_absolute_error(y_test, predictions)
 MSE = mean_squared_error(y_test, predictions)
 RMSE = np.sqrt(MSE)
 
-print("MAE: %f" % (MAE))
-print("RMSE: %f" % (RMSE))
+print("MAE (poly): %f" % (MAE))
+print("RMSE (poly): %f" % (RMSE))
 
-X_temp = [[1121121, 2121121, 10, 500]]
-print(model.predict(polynomial.fit_transform(X_temp)))
 
-# correlation matrix
-# plt.figure(figsize=(16,10))
-# sns.heatmap(df.corr(), annot=True)
-# plt.show()
+# polynomial regression predict example
+X_example = polynomial.fit_transform([[20000, 50000, 0.9, 900]])
+print(model.predict(X_example))
 
-# residual plot (precise)
-# residuals = y_test - predictions
-# sns.scatterplot(x=y_test, y=residuals)
-# plt.axhline(y=0, color='r', linestyle='--')
-# plt.xlabel("Net profit")
-# plt.ylabel("Residuals")
-# plt.title("Residual Plot")
-# plt.show()
+
+# polynomial regression plot
+fig, [[ax0, ax1], [ax2, ax3]] = plt.subplots(2, 2)
+fig.set_size_inches([16, 10])
+sns.regplot(data=df, x="PFS", y="NP", order=2, ax=ax0)
+sns.regplot(data=df, x="REV", y="NP", order=2, ax=ax1)
+sns.regplot(data=df, x="POS", y="NP", order=2, ax=ax2)
+sns.regplot(data=df, x="SOE", y="NP", order=2, ax=ax3)
+plt.show()
+
+
+# linear regression
+X_lin = df["PFS"].values.reshape(-1, 1)
+y_lin = df["NP"]
+
+X_lin_train, X_lin_test, y_lin_train, y_lin_test = train_test_split(X_lin, y_lin, test_size=0.33, random_state=42)
+
+lin_model = LinearRegression()
+lin_model.fit(X_lin_train, y_lin_train)
+
+linear_predictions = lin_model.predict(X_lin_test)
+
+
+# residual plot (lin)
+residuals = y_lin_test - linear_predictions
+sns.scatterplot(x=y_lin_test, y=residuals)
+plt.axhline(y=0, color='r', linestyle='--')
+plt.xlabel("Net profit")
+plt.ylabel("Residuals")
+plt.title("Residual Plot (lin)")
+plt.show()
+
+
+# calculating MAE, RMSE for linear regression
+MAE = mean_absolute_error(y_lin_test, linear_predictions)
+MSE = mean_squared_error(y_lin_test, linear_predictions)
+RMSE = np.sqrt(MSE)
+
+print("MAE (lin): %f" % (MAE))
+print("RMSE (lin): %f" % (RMSE))
+
+
+# linear regression predict example
+k = np.array([5, 10, 15, 2, 1]).reshape(-1,1)
+print(lin_model.predict(k))
+
+
+# linear regression plot
+plt.figure(figsize=(10,5))
+sns.regplot(x=X_lin, y=y_lin)
+plt.xlabel("PFS")
+plt.ylabel("NP")
+plt.show()
