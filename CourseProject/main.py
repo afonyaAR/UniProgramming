@@ -134,7 +134,6 @@ print(model.predict(X_example))
 
 # polynomial regression plot
 fig, [[ax0, ax1], [ax2, ax3]] = plt.subplots(2, 2)
-fig.set_size_inches([16, 10])
 sns.regplot(data=df, x="PFS", y="NP", order=2, ax=ax0)
 sns.regplot(data=df, x="REV", y="NP", order=2, ax=ax1)
 sns.regplot(data=df, x="POS", y="NP", order=2, ax=ax2)
