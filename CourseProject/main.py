@@ -12,6 +12,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 # settings
 pd.set_option('display.width', 400)
 pd.set_option('display.max_columns', 15)
+sns.set(font_scale=1.3)
 
 
 # data info
@@ -61,6 +62,9 @@ for region in range(len(df_REG)):
         for year in range(len(df_YER)):
             additional_info.append(df_YER[year])
             coord = (region, year+size*6)
+            # row = [df_SOE[coord], df_PV[coord],
+            #        df_PFS[coord], df_POP[coord], df_POS[coord], df_REV[coord],
+            #        additional_info[0], df_NP[coord]]
             row = [df_CP[coord], df_NOE[coord], df_SOE[coord], df_PV[coord],
                    df_PFS[coord], df_POP[coord], df_POS[coord], df_REV[coord],
                    *additional_info, df_NP[coord]]
@@ -75,6 +79,7 @@ for region in range(len(df_REG)):
 
 
 # creating datafile
+# df = pd.DataFrame(dataset, columns=["SOE", "PV", "PFS", "POP", "POS", "REV", "REG", "NP"])
 df = pd.DataFrame(dataset, columns=["CP", "NOE", "SOE", "PV", "PFS", "POP", "POS", "REV", "REG", "SIZ", "YER", "NP"])
 le = LabelEncoder()
 
@@ -83,13 +88,14 @@ df["SIZ"] = le.fit_transform(df["SIZ"])
 
 
 # datafile, EDA - exploratory data analysis,
-# print(df)
-# print(df.describe())
+print(df)
+print(df.describe())
 
 
 # correlation matrix
 plt.figure(figsize=(16,10))
-sns.heatmap(df.corr(), annot=True)
+sns.heatmap(df.corr().round(2), annot=True, annot_kws={"size": 15})
+plt.yticks(rotation=0)
 plt.show()
 
 
@@ -110,7 +116,7 @@ predictions = model.predict(X_test)
 
 # residual plot (poly)
 residuals = y_test - predictions
-sns.scatterplot(x=y_test, y=residuals)
+sns.scatterplot(x=y_test[0:100], y=residuals[0:100])
 plt.axhline(y=0, color='r', linestyle='--')
 plt.xlabel("Net profit")
 plt.ylabel("Residuals")
@@ -134,10 +140,11 @@ print(model.predict(X_example))
 
 # polynomial regression plot
 fig, [[ax0, ax1], [ax2, ax3]] = plt.subplots(2, 2)
-sns.regplot(data=df, x="PFS", y="NP", order=2, ax=ax0)
-sns.regplot(data=df, x="REV", y="NP", order=2, ax=ax1)
-sns.regplot(data=df, x="POS", y="NP", order=2, ax=ax2)
-sns.regplot(data=df, x="SOE", y="NP", order=2, ax=ax3)
+df_show = df[0:100]
+sns.regplot(data=df_show, x="PFS", y="NP", order=2, ax=ax0)
+sns.regplot(data=df_show, x="REV", y="NP", order=2, ax=ax1)
+sns.regplot(data=df_show, x="POS", y="NP", order=2, ax=ax2)
+sns.regplot(data=df_show, x="SOE", y="NP", order=2, ax=ax3)
 plt.show()
 
 
@@ -145,7 +152,7 @@ plt.show()
 X_lin = df["PFS"].values.reshape(-1, 1)
 y_lin = df["NP"]
 
-X_lin_train, X_lin_test, y_lin_train, y_lin_test = train_test_split(X_lin, y_lin, test_size=0.33, random_state=42)
+X_lin_train, X_lin_test, y_lin_train, y_lin_test = train_test_split(X_lin, y_lin, test_size=0.2, random_state=42)
 
 lin_model = LinearRegression()
 lin_model.fit(X_lin_train, y_lin_train)
@@ -155,7 +162,7 @@ linear_predictions = lin_model.predict(X_lin_test)
 
 # residual plot (lin)
 residuals = y_lin_test - linear_predictions
-sns.scatterplot(x=y_lin_test, y=residuals)
+sns.scatterplot(x=y_lin_test[0:100], y=residuals[0:100])
 plt.axhline(y=0, color='r', linestyle='--')
 plt.xlabel("Net profit")
 plt.ylabel("Residuals")
@@ -179,7 +186,7 @@ print(lin_model.predict(k))
 
 # linear regression plot
 plt.figure(figsize=(10,5))
-sns.regplot(x=X_lin, y=y_lin)
+sns.regplot(x=X_lin[0:100], y=y_lin[0:100])
 plt.xlabel("PFS")
 plt.ylabel("NP")
 plt.title("Linear regression")
