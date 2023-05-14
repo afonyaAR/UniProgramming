@@ -9,10 +9,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 
-# settings
+# start settings
 pd.set_option('display.width', 400)
 pd.set_option('display.max_columns', 15)
-sns.set(font_scale=1.3)
 
 
 # data info
@@ -62,9 +61,6 @@ for region in range(len(df_REG)):
         for year in range(len(df_YER)):
             additional_info.append(df_YER[year])
             coord = (region, year+size*6)
-            # row = [df_SOE[coord], df_PV[coord],
-            #        df_PFS[coord], df_POP[coord], df_POS[coord], df_REV[coord],
-            #        additional_info[0], df_NP[coord]]
             row = [df_CP[coord], df_NOE[coord], df_SOE[coord], df_PV[coord],
                    df_PFS[coord], df_POP[coord], df_POS[coord], df_REV[coord],
                    *additional_info, df_NP[coord]]
@@ -79,10 +75,8 @@ for region in range(len(df_REG)):
 
 
 # creating datafile
-# df = pd.DataFrame(dataset, columns=["SOE", "PV", "PFS", "POP", "POS", "REV", "REG", "NP"])
 df = pd.DataFrame(dataset, columns=["CP", "NOE", "SOE", "PV", "PFS", "POP", "POS", "REV", "REG", "SIZ", "YER", "NP"])
 le = LabelEncoder()
-
 df["REG"] = le.fit_transform(df["REG"])
 df["SIZ"] = le.fit_transform(df["SIZ"])
 
@@ -93,7 +87,8 @@ print(df.describe())
 
 
 # correlation matrix
-plt.figure(figsize=(16,10))
+sns.set(font_scale=1.3)
+plt.figure(figsize=(16, 10))
 sns.heatmap(df.corr().round(2), annot=True, annot_kws={"size": 15})
 plt.yticks(rotation=0)
 plt.show()
@@ -115,22 +110,22 @@ predictions = model.predict(X_test)
 
 
 # residual plot (poly)
+sns.set(font_scale=2)
+sns.set_style("white")
 residuals = y_test - predictions
 sns.scatterplot(x=y_test[0:100], y=residuals[0:100])
 plt.axhline(y=0, color='r', linestyle='--')
-plt.xlabel("Net profit")
-plt.ylabel("Residuals")
-plt.title("Residual Plot (poly)")
+plt.xlabel("NP")
+plt.ylabel("Residual")
+plt.title("Residual plot (poly)")
 plt.show()
 
 
 # calculating MAE, RMSE for polynomial regression
 MAE = mean_absolute_error(y_test, predictions)
-MSE = mean_squared_error(y_test, predictions)
-RMSE = np.sqrt(MSE)
-
-print("MAE (poly): %f" % (MAE))
-print("RMSE (poly): %f" % (RMSE))
+RMSE = np.sqrt(mean_squared_error(y_test, predictions))
+print("MAE (poly): %f" % MAE)
+print("RMSE (poly): %f" % RMSE)
 
 
 # polynomial regression predict example
@@ -139,12 +134,16 @@ print(model.predict(X_example))
 
 
 # polynomial regression plot
-fig, [[ax0, ax1], [ax2, ax3]] = plt.subplots(2, 2)
+sns.set(font_scale=1.5)
+sns.set_style("white")
+fig, axes = plt.subplots(2, 2)
 df_show = df[0:100]
-sns.regplot(data=df_show, x="PFS", y="NP", order=2, ax=ax0)
-sns.regplot(data=df_show, x="REV", y="NP", order=2, ax=ax1)
-sns.regplot(data=df_show, x="POS", y="NP", order=2, ax=ax2)
-sns.regplot(data=df_show, x="SOE", y="NP", order=2, ax=ax3)
+fig.suptitle("Polynomial regression")
+sns.regplot(data=df_show, x="PFS", y="NP", order=2, ax=axes[0][0])
+sns.regplot(data=df_show, x="REV", y="NP", order=2, ax=axes[0][1])
+sns.regplot(data=df_show, x="POS", y="NP", order=2, ax=axes[1][0])
+sns.regplot(data=df_show, x="SOE", y="NP", order=2, ax=axes[1][1])
+plt.setp(axes, ylabel="NP")
 plt.show()
 
 
@@ -161,31 +160,31 @@ linear_predictions = lin_model.predict(X_lin_test)
 
 
 # residual plot (lin)
+sns.set_style("white")
 residuals = y_lin_test - linear_predictions
 sns.scatterplot(x=y_lin_test[0:100], y=residuals[0:100])
 plt.axhline(y=0, color='r', linestyle='--')
-plt.xlabel("Net profit")
-plt.ylabel("Residuals")
-plt.title("Residual Plot (lin)")
+plt.xlabel("NP")
+plt.ylabel("Residual")
+plt.title("Residual plot (lin)")
 plt.show()
 
 
 # calculating MAE, RMSE for linear regression
 MAE = mean_absolute_error(y_lin_test, linear_predictions)
-MSE = mean_squared_error(y_lin_test, linear_predictions)
-RMSE = np.sqrt(MSE)
-
-print("MAE (lin): %f" % (MAE))
-print("RMSE (lin): %f" % (RMSE))
+RMSE = np.sqrt(mean_squared_error(y_lin_test, linear_predictions))
+print("MAE (lin): %f" % MAE)
+print("RMSE (lin): %f" % RMSE)
 
 
 # linear regression predict example
-k = np.array([5, 10, 15, 2, 1]).reshape(-1,1)
-print(lin_model.predict(k))
+X_lin_example = np.array([5, 10, 15, 2, 1]).reshape(-1, 1)
+print(lin_model.predict(X_lin_example))
 
 
 # linear regression plot
-plt.figure(figsize=(10,5))
+sns.set_style("white")
+plt.figure(figsize=(10, 5))
 sns.regplot(x=X_lin[0:100], y=y_lin[0:100])
 plt.xlabel("PFS")
 plt.ylabel("NP")
