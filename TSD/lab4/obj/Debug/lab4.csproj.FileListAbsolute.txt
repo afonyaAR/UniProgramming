@@ -1,0 +1,8 @@
+C:\Users\azare\Desktop\Coding\c#\lab4\bin\Debug\lab4.exe.config
+C:\Users\azare\Desktop\Coding\c#\lab4\bin\Debug\lab4.exe
+C:\Users\azare\Desktop\Coding\c#\lab4\bin\Debug\lab4.pdb
+C:\Users\azare\Desktop\Coding\c#\lab4\obj\Debug\lab4.csproj.AssemblyReference.cache
+C:\Users\azare\Desktop\Coding\c#\lab4\obj\Debug\lab4.csproj.SuggestedBindingRedirects.cache
+C:\Users\azare\Desktop\Coding\c#\lab4\obj\Debug\lab4.csproj.CoreCompileInputs.cache
+C:\Users\azare\Desktop\Coding\c#\lab4\obj\Debug\lab4.exe
+C:\Users\azare\Desktop\Coding\c#\lab4\obj\Debug\lab4.pdb
