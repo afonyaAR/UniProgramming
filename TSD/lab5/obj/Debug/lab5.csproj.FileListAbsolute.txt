@@ -1,0 +1,8 @@
+C:\Users\azare\Desktop\Coding\c#\lab5\bin\Debug\lab5.exe.config
+C:\Users\azare\Desktop\Coding\c#\lab5\bin\Debug\lab5.exe
+C:\Users\azare\Desktop\Coding\c#\lab5\bin\Debug\lab5.pdb
+C:\Users\azare\Desktop\Coding\c#\lab5\obj\Debug\lab5.csproj.AssemblyReference.cache
+C:\Users\azare\Desktop\Coding\c#\lab5\obj\Debug\lab5.csproj.SuggestedBindingRedirects.cache
+C:\Users\azare\Desktop\Coding\c#\lab5\obj\Debug\lab5.csproj.CoreCompileInputs.cache
+C:\Users\azare\Desktop\Coding\c#\lab5\obj\Debug\lab5.exe
+C:\Users\azare\Desktop\Coding\c#\lab5\obj\Debug\lab5.pdb
