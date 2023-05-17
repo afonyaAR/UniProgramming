@@ -1,17 +1,18 @@
 ﻿#include <iostream>
 #include "Pet.h"
+#include "Dog.h"
 using namespace std;
 
-void runUnitest()
+void runUnitest1()
 {
     Pet pets[2];
 
+    pets[1] = Pet("ZaakenZluken", "sheepdog", 30, 40);
     pets[0].SetBreed("shpits");
     pets[0].SetName("Nastya");
     pets[0].SetHealth(100);
     pets[0].SetSaturation(100);
 
-    pets[1] = Pet("sheepdog", "ZaakenZluken", 30, 40);
 
     for (int i = 0; i < 2; i++)
     {
@@ -34,8 +35,27 @@ void runUnitest()
     }
 }
 
+void runUnitest2()
+{
+    
+}
+
 int main()
 {
     setlocale(0, "");
-    runUnitest();
+    
+  /*Dog dogs[2];
+    
+    dogs[0] = Dog("sharik", "idk", 100, 100, 1, 2);
+    dogs[1] = Dog("harik", "idk", 100, 100, 1, 2);
+
+    dogs[0].AddSkill("sit", 30, "im sittin'");
+    dogs[0].AddSkill("tell story", 200, "story");
+    dogs[0].DoSkill("sit");
+    dogs[0].DoSkill("tell story");
+
+    for (int i = 0; i < 2; i++)
+    {
+        dogs[i].InfoPet(); 
+    }*/
 }

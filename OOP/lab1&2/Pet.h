@@ -4,22 +4,22 @@ using namespace std;
 
 class Pet
 {
-private:
-    string breed;
+protected:
     string name;
+    string breed;
     unsigned int health;
     unsigned int saturation;
 public:
     Pet() : Pet("unknown_name", "unknown_breed", 0, 0) {};
-    Pet(string breed, string name, unsigned int healthPer, unsigned int saturationPer);
+    Pet(string name, string breed, unsigned int healthPer, unsigned int saturationPer);
 
-    string GetBreed();
     string GetName();
+    string GetBreed();
     int GetSaturation();
     int GetHealth();
 
-    void SetBreed(string breed);
     void SetName(string name);
+    void SetBreed(string breed);
     void SetHealth(unsigned int health);
     void SetSaturation(unsigned int saturation);
 
