@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98183f0d-a267-4dcb-b1b4-15a0d575a26e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../TSD/lab8/.vs/lab8/FileContentIndex/69e16251-e8da-42ba-be73-4f90c79effd6.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TSD/lab8/.vs/lab8/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../TSD/lab8/.vs/lab8/v17/.suo" afterDir="false" />
-    </list>
+    <list default="true" id="98183f0d-a267-4dcb-b1b4-15a0d575a26e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +22,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Data-Science-course",
     "last_opened_file_path": "C:/Users/Анна/OneDrive/Документы/GitHub/UniProgramming/CourseProject",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
