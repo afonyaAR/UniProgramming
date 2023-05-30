@@ -16,13 +16,18 @@ Time::Time(int hours, int minutes, int seconds)
 }
 void Time::ShowTime()
 {
-	cout << "hours: " << hours << endl;
-	cout << "minutes: " << minutes << endl;
-	cout << "seconds: " << seconds << endl;
+	cout << hours << ":" << minutes << ":" << seconds << endl;
+}
+void Time::ShowTime(const int seconds)
+{
+	int hours = seconds / 3600;
+	int minutes = (seconds / 60) % 60;
+	int _seconds = seconds % 60;
+	cout << hours << ":" << minutes << ":" << _seconds << endl;
 }
 void Time::ShowSeconds()
 {
-	cout << "total time (in seconds): " << hours * 3600 + minutes * 60 + seconds;
+	cout << "total time (in seconds): " << hours * 3600 + minutes * 60 + seconds << endl;
 }
 Time operator+(const Time& time1, const Time& time2)
 {

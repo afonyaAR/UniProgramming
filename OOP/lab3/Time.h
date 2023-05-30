@@ -13,6 +13,7 @@ public:
 	Time(int seconds) : Time(seconds/3600, seconds%3600/60, seconds%60) {}
 	Time(int hours, int minutes, int seconds);
 	void ShowTime();
+	static void ShowTime(const int seconds);
 	void ShowSeconds();
 	friend Time operator+(const Time& time1, const Time& time2);
 	friend Time operator+(const Time& time1, const int seconds);
