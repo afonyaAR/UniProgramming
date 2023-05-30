@@ -67,11 +67,11 @@ for region in range(len(df_REG)):
 
             dataset.append(row)
 
-            additional_info.pop(2)
+            additional_info.pop()
 
-        additional_info.pop(1)
+        additional_info.pop()
 
-    additional_info.pop(0)
+    additional_info.pop()
 
 
 # creating datafile
@@ -190,3 +190,6 @@ plt.xlabel("PFS")
 plt.ylabel("NP")
 plt.title("Linear regression")
 plt.show()
+
+
+# ANOVA
