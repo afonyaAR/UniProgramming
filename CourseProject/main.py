@@ -129,8 +129,8 @@ print("RMSE (poly): %f" % RMSE)
 
 
 # polynomial regression predict example
-X_example = polynomial.fit_transform([[20000, 50000, 0.9, 900]])
-print(model.predict(X_example))
+# X_example = polynomial.fit_transform([[20000, 50000, 0.9, 900]])
+# print(model.predict(X_example))
 
 
 # polynomial regression plot
@@ -139,10 +139,10 @@ sns.set_style("white")
 fig, axes = plt.subplots(2, 2)
 df_show = df[0:100]
 fig.suptitle("Polynomial regression")
-sns.regplot(data=df_show, x="PFS", y="NP", order=2, ax=axes[0][0])
-sns.regplot(data=df_show, x="REV", y="NP", order=2, ax=axes[0][1])
-sns.regplot(data=df_show, x="POS", y="NP", order=2, ax=axes[1][0])
-sns.regplot(data=df_show, x="SOE", y="NP", order=2, ax=axes[1][1])
+sns.regplot(data=df_show, x="PFS", y="NP", order=1, ax=axes[0][0])
+sns.regplot(data=df_show, x="REV", y="NP", order=1, ax=axes[0][1])
+sns.regplot(data=df_show, x="POS", y="NP", order=1, ax=axes[1][0])
+sns.regplot(data=df_show, x="SOE", y="NP", order=1, ax=axes[1][1])
 plt.setp(axes, ylabel="NP")
 plt.show()
 
