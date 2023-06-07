@@ -12,8 +12,8 @@ protected:
 public:
     Pet();
     Pet(string name, string breed, 
-        unsigned int healthPer, 
-        unsigned int saturationPer);
+        unsigned int health, 
+        unsigned int saturation);
 
     string GetName();
     string GetBreed();

@@ -1,5 +1,6 @@
 #include "Dog.h"
 #include <map>
+
 Dog::Dog()
 {
 	this->name = "doggy";
