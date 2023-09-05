@@ -70,5 +70,6 @@ void runUnitest3()
 int main()
 {
     setlocale(0, "");
+    runUnitest2();
 
 }
