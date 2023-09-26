@@ -3,7 +3,7 @@
 Factory::Factory()
 {
 	this->material = 0;
-	this->maxPower = 0;
+	this->maxPower = 1;
 	this->power = 0;
 }
 
@@ -18,24 +18,21 @@ Factory::Factory(unsigned int material,
 void Factory::AddMaterial(unsigned int amount)
 {
 	this->material += amount;
-	cout << "Adding " << amount << " material";
+	cout << "Adding " << amount << " material" << endl;
 }
 
-void Factory::SetMaxPower(unsigned int maxPower)
+void Factory::SetPower()
 {
-	this->maxPower = maxPower;
-	cout << "Changing max power to " << maxPower;
-}
-
-void Factory::SetPower(unsigned int power)
-{
+	cout << "Enter power (max power = " << maxPower << "): ";
+	cin >> power;
 	if (power > maxPower)
 	{
-		cout << "Factory cant work on this power";
+		cout << "Factory cant work on this power" << endl;
+		SetPower();
 	}
 	else
 	{
 		this->power = power;
-		cout << "Changing power to " << power;
+		cout << "Changing power to " << power << endl;
 	}
 }

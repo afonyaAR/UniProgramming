@@ -16,5 +16,11 @@ Candy::Candy(string candyName,
 void Candy::ChangeCost(unsigned int materialCost)
 {
 	this->materialCost = materialCost;
-	cout << "Changing material cost to " << materialCost;
+	cout << "Changing material cost to " << materialCost << endl;
+}
+
+void Candy::CandyInfo()
+{
+	cout << "Candy name: " << this->candyName << endl;
+	cout << "Material cost: " << this->materialCost << endl;
 }

@@ -5,6 +5,7 @@ using namespace std;
 int* MatrixContents(unsigned int size)
 {
     int* numbers = new int[size];
+    cout << "Write " << size << " symbols:\n";
     for (int i = 0; i < size; i++)
     {
         cin >> numbers[i];
@@ -25,7 +26,7 @@ int** RandomMatrix(unsigned int m, unsigned int n, unsigned int size)
         for (int j = 0; j < n; j++)
         {
             matrix[i][j] = numbers[rand() % size];
-            cout.width(3);
+            cout.width(6);
             cout << matrix[i][j] << " ";
         }
         cout << "\n";
@@ -57,7 +58,7 @@ int main()
     //set matrix settings
     const unsigned int m = 6;
     const unsigned int n = 3;
-    const unsigned int size = 4;
+    const unsigned int size = 3;
     int** matrix = RandomMatrix(m, n, size);
 
     //printing result

@@ -7,11 +7,11 @@ class Candy
 protected:
 	string candyName;
 	unsigned int materialCost;
-	unsigned int sweetness;
 public:
 	Candy();
 	Candy(string candyName,
-		unsigned int materialCost);
+		  unsigned int materialCost);
 	void ChangeCost(unsigned int materialCost);
+	void CandyInfo();
 };
 

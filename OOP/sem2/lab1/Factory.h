@@ -11,10 +11,9 @@ protected:
 public:
 	Factory();
 	Factory(unsigned int material,
-		unsigned int maxPower);
-	virtual void Craft(unsigned int amount) const = 0;
+			unsigned int maxPower);
+	virtual void Craft(unsigned int amount) = 0;
 	void AddMaterial(unsigned int amount);
-	void SetMaxPower(unsigned int maxPower);
-	void SetPower(unsigned int power);
+	void SetPower();
 };
 

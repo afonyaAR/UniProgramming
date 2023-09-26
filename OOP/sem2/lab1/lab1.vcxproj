@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CakeFactory.cpp" />
     <ClCompile Include="Candy.cpp" />
     <ClCompile Include="CandyFactory.cpp" />
     <ClCompile Include="ChocolateFactory.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="lab1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CakeFactory.h" />
     <ClInclude Include="Candy.h" />
     <ClInclude Include="CandyFactory.h" />
     <ClInclude Include="ChocolateFactory.h" />

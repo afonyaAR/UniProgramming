@@ -10,9 +10,10 @@ class CandyFactory:
 public:
 	CandyFactory();
 	CandyFactory(unsigned int material,
-		unsigned int maxPower,
-		string candyName,
-		unsigned int materialCost);
+				 unsigned int maxPower,
+				 string candyName,
+				 unsigned int materialCost);
 	void Craft(unsigned int amount);
+	void CandyFactoryInfo();
 };
 
