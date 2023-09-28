@@ -16,4 +16,3 @@ public:
 	void Craft(unsigned int amount);
 	void CakeFactoryInfo();
 };
-

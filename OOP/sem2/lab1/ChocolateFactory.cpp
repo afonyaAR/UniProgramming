@@ -24,5 +24,5 @@ void ChocolateFactory::Craft(unsigned int amount)
 void ChocolateFactory::ChocolateFactoryInfo()
 {
 	CandyFactory::CandyFactoryInfo();
-	cout << "sweetness: " << this->sweetness;
+	cout << "sweetness: " << this->sweetness << endl;
 }

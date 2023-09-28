@@ -28,5 +28,4 @@ int main()
 	ckf.CakeFactoryInfo();
 	ckf.Craft(3);
 	ckf.CakeFactoryInfo();
-
 }
