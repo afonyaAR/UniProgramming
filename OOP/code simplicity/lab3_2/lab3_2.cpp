@@ -7,7 +7,7 @@ using namespace std;
 /// </summary>
 /// <param name="text"></param>
 /// <param name="symbol"></param>
-/// <returns>number of symbols in text</returns>
+/// <returns>(int) number of symbols in text</returns>
 int NumberOfCharInString(string text, char symbol)
 {
     int count = 0;
