@@ -1,0 +1,9 @@
+﻿  ConsoleApplication1.cpp
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(72,27): warning C4305: аргумент: усечение из "int" в "const _Elem"
+          with
+          [
+              _Elem=char
+          ]
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(72,23): warning C4309: аргумент: усечение константного значения
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(83,10): warning C4804: %: небезопасное использование типа "bool" в операции
+  ConsoleApplication1.vcxproj -> C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
