@@ -131,6 +131,7 @@
     <ClCompile Include="Van.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lab7.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Van.h" />
   </ItemGroup>

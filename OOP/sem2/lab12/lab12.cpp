@@ -48,7 +48,7 @@ void WriteStudents(Student* students, int t_size = 1)
     ofstream ofs("students.bin", ios::binary | ios::out);
     for (int i = 0; i < t_size; i++)
     {
-        ofs.write((char*)&students[i], sizeof(Student));
+        ofs.write((char*)&students[i], sizeof(students[i]));
     }
 }
 

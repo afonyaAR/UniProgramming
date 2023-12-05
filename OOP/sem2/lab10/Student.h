@@ -23,6 +23,5 @@ public:
 	int GetGroupNumber();
 	int* GetGrades();
 	void StudentInfo();
-
 };
 

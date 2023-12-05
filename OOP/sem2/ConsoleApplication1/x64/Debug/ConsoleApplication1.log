@@ -1,9 +1,20 @@
 ﻿  ConsoleApplication1.cpp
-C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(72,27): warning C4305: аргумент: усечение из "int" в "const _Elem"
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(73,27): warning C4305: аргумент: усечение из "int" в "const _Elem"
           with
           [
               _Elem=char
           ]
-C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(72,23): warning C4309: аргумент: усечение константного значения
-C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(83,10): warning C4804: %: небезопасное использование типа "bool" в операции
-  ConsoleApplication1.vcxproj -> C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(73,23): warning C4309: аргумент: усечение константного значения
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(84,10): warning C4804: %: небезопасное использование типа "bool" в операции
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(166,13): warning C4101: param: неиспользованная локальная переменная
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(244,13): error C2102: для "&" требуется левостороннее значение
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(244,11): error C2440: инициализация: невозможно преобразовать "int **" в "int *"
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(244,11): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции в круглых скобках
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(244,21): error C2065: SUKA: необъявленный идентификатор
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(244,26): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "BLYAT"
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(244,26): error C2065: BLYAT: необъявленный идентификатор
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(244,32): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "NAHUI"
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(244,32): error C2065: NAHUI: необъявленный идентификатор
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(244,38): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "PAITON"
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(244,38): error C2065: PAITON: необъявленный идентификатор
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\ConsoleApplication1\ConsoleApplication1.cpp(245,2): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "cout"

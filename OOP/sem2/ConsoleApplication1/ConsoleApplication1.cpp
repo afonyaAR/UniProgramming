@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <typeinfo>
 #include <stdio.h>
 #include <vector>
 using namespace std;
@@ -131,25 +132,115 @@ void def20()
 	cout << (int)Quiz(arr) << Quiz(arr, n - 1);
 }
 
-template<class T> struct B
+class Foo
 {
-	T t;
-	B() {}
-	B(T t0) : t(t0) {}
-	const T GetT() const
+public:
+	Foo(int x)
 	{
-		if (typeid(T) == typeid(int))
-			return t * 2;
-		else
-			return t;
+
 	}
 };
-void def22()
+void def_1()
 {
-	cout << B<int>(12).GetT() + B<long>(12).GetT() << endl;
+	auto a = 166LL;
+	auto b = 'a' + true;
+	auto c = Foo(3);
+	cout << typeid(a).name() << endl;
+	cout << typeid(b).name() << endl;
+	cout << typeid(c).name() << endl;
 }
+
+void def_2()
+{
+	string str("Test string");
+	for (string::iterator it = str.begin(); it != str.end() - 4; ++it)
+		cout << *it;
+}
+
+void def_3()
+{
+	try
+	{
+		throw 'a';
+	}
+	catch (int param)
+	{
+		cout << "int exception\n";
+	}
+	catch (...)
+	{
+		cout << "default exception\n";
+	}
+	cout << "After Exception";
+}
+
+void def_4()
+{
+	short m1 = 10;
+	int d = 2;
+	cout << (int)(m1 * d);
+}
+
+//class A
+//{
+//	int id;
+//	static int count;
+//public:
+//	A()
+//	{
+//		count++;
+//		id = count;
+//		cout << "constructor for id" << id << endl;
+//	}
+//	~A()
+//	{
+//		cout << "destructor for id" << id << endl;
+//	}
+//};
+//int A::count = 0;
+//
+//void def_5()
+//{
+//	A a[3];
+//}
+
+class A
+{
+private:
+	int a;
+public:
+	A() { a = 4; }
+	friend class B;
+	friend class C;
+};
+
+class B
+{
+private:
+	int a;
+public:
+	B() { a = 2; }
+	void showA(A& x)
+	{
+		cout << "B::b=" << x.a;
+	}
+};
+
+class C
+{
+private:
+	int a;
+public:
+	C() { a = 6; }
+	void showA(A& x)
+	{
+		cout << "C::c=" << x.a;
+	}
+};
 
 int main()
 {
-	def22();
+	int a[] = { 1,2,3,4,5,6 };
+	int* ptr = (a + 1);
+	cout << *(ptr-1);
 }

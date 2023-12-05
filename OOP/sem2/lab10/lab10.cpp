@@ -45,7 +45,7 @@ void FindGoodStudents(Student* students, const int t_size)
 int main()
 {
     //Student st1 = Student("Alesha", "Azar_Romanovich", 6, new int[5]{3, 2, 2, 5, 3});
-    const int t_size = 5;
+    const int t_size = 3;
     Student* students = new Student[t_size];
 
     for (int i = 0; i < t_size; i++) 

@@ -29,17 +29,18 @@ Stack<Van> TrainFromFile(string file)
     ifstream ifs(file, ios::in);
     string unused;
     int numLines = 0;
-    while (getline(ifs, unused))
-    {
-        numLines++;
-    }
-
     if (!ifs)
     {
         cerr << file << " cant be opened for reading";
         exit(1);
     }
 
+    while (getline(ifs, unused))
+    {
+        numLines++;
+    }
+
+    ifs.clear();
     ifs.seekg(0);
     Stack<Van> train(numLines);
     for (int i = 0; i < numLines; i++)
@@ -81,16 +82,18 @@ int main()
         }
     }
 
-    for (int i = 0; i < size; i++)
+    while(train1.size())
     {
         train1.peek().VanInfo();
         train1.pop();
     }
 
-    /*for (int i = 0; i < size; i++)
+    cout << endl;
+
+    while(train0.size())
     {
-        train.peek().VanInfo();
-        train.pop();
-    }*/
+        train0.peek().VanInfo();
+        train0.pop();
+    }
 }
 

@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <ctime>
+#include <vector>
 using namespace std;
 
 int* MatrixContents(int size)
@@ -8,6 +9,7 @@ int* MatrixContents(int size)
     cout << "Write " << size << " symbols:" << endl;
     for (int i = 0; i < size; i++)
     {
+        cout << "symbol " << i + 1 << " = ";
         try
         {
             cin >> numbers[i];
@@ -32,6 +34,29 @@ int** RandomMatrix(int m, int n, int size)
 {
     int** matrix = new int* [m];
     int* numbers = MatrixContents(size);
+    srand(time(NULL));
+
+    for (int i = 0; i < m; i++)
+    {
+
+        matrix[i] = new int[n];
+        for (int j = 0; j < n; j++)
+        {
+            matrix[i][j] = numbers[rand() % size];
+            cout.width(3);
+            cout << matrix[i][j] << " ";
+        }
+        cout << "\n";
+    }
+
+    return matrix;
+}
+
+int** RandomMatrix(int m, int n, int* numbers)
+{
+    int** matrix = new int* [m];
+    int size = sizeof(numbers) / sizeof(numbers[0]);
+    cout << size;
     srand(time(NULL));
 
     for (int i = 0; i < m; i++)
@@ -89,7 +114,7 @@ int GetValue(string name)
     catch (const exception& ex)
     {
         cerr << "Error: " << ex.what() << endl;
-        return GetValue(name);
+        GetValue(name);
     }
 
     return x;
