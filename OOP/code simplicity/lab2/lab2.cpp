@@ -30,17 +30,17 @@ int* MatrixContents(int size)
     return numbers;
 }
 
-int** RandomMatrix(int m, int n, int size)
+int** RandomMatrix(int n, int m, int size)
 {
-    int** matrix = new int* [m];
+    int** matrix = new int* [n];
     int* numbers = MatrixContents(size);
     srand(time(NULL));
 
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < n; i++)
     {
 
-        matrix[i] = new int[n];
-        for (int j = 0; j < n; j++)
+        matrix[i] = new int[m];
+        for (int j = 0; j < m; j++)
         {
             matrix[i][j] = numbers[rand() % size];
             cout.width(3);
@@ -52,17 +52,16 @@ int** RandomMatrix(int m, int n, int size)
     return matrix;
 }
 
-int** RandomMatrix(int m, int n, int* numbers)
+int** RandomMatrix(int n, int m, int size, int* numbers)
 {
-    int** matrix = new int* [m];
-    int size = sizeof(numbers) / sizeof(numbers[0]);
+    int** matrix = new int* [n];
     cout << size;
     srand(time(NULL));
 
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < n; i++)
     {
-        matrix[i] = new int[n];
-        for (int j = 0; j < n; j++)
+        matrix[i] = new int[m];
+        for (int j = 0; j < m; j++)
         {
             matrix[i][j] = numbers[rand() % size];
             cout.width(3);
@@ -74,12 +73,12 @@ int** RandomMatrix(int m, int n, int* numbers)
     return matrix;
 }
 
-int NumOfTargetedStrokes(int** matrix, int m, int n, int target)
+int NumOfTargetedStrokes(int** matrix, int n, int m, int target)
 {
     int countZeroStrokes = 0;
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < m; j++)
         {
             if (matrix[i][j] == target)
             {
@@ -89,7 +88,7 @@ int NumOfTargetedStrokes(int** matrix, int m, int n, int target)
         }
     }
 
-    return m - countZeroStrokes;
+    return n - countZeroStrokes;
 }
 
 int GetValue(string name)
@@ -124,14 +123,14 @@ int main()
 {
     //settin matrix settings
     int m, n, size, target;
-    m = GetValue("m");
     n = GetValue("n");
+    m = GetValue("m");
     size = GetValue("size");
     target = GetValue("target");
     
     //creatin matrix
-    int** matrix = RandomMatrix(m, n, size);
+    int** matrix = RandomMatrix(n, m, size);
 
     //printing result
-    cout << "Number of strokes without " << target << ": " << NumOfTargetedStrokes(matrix, m, n, target);
+    cout << "Number of strokes without " << target << ": " << NumOfTargetedStrokes(matrix, n, m, target);
 }

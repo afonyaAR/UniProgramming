@@ -1,3 +1,4 @@
 ﻿  lab2_test.cpp
-C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\code simplicity\lab2\lab2.cpp(35,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\code simplicity\lab2\lab2.cpp(37,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\code simplicity\lab2\lab2.cpp(59,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   lab2_test.vcxproj -> C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\code simplicity\lab2\x64\Debug\lab2_test.dll
