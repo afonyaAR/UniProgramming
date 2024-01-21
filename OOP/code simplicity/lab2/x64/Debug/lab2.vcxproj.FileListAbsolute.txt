@@ -1,0 +1,3 @@
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\lab2\x64\Debug\lab2.exe
+C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\code simplicity\lab2\x64\Debug\lab2.exe
+C:\Users\azare\Documents\GitHub\UniProgramming\OOP\code simplicity\lab2\x64\Debug\lab2.exe
