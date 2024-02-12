@@ -11,7 +11,6 @@ namespace lab4
         private int houseNum;
         private int apartmentNum;
         private string reciever;
-        private double cost;
 
         public static List<Mail> MailObjects = new List<Mail>();
 
@@ -20,15 +19,13 @@ namespace lab4
             string street = "Unknown",
             int houseNum = 0,
             int apartmentNum = 0,
-            string reciever = "Unknown",
-            double cost = 0)
+            string reciever = "Unknown")
         {
             this.city = city;
             this.street = street;
             this.houseNum = houseNum;
             this.apartmentNum = apartmentNum;
             this.reciever = reciever;
-            this.cost = cost;
             MailObjects.Add(this);
         }
 
@@ -97,9 +94,9 @@ namespace lab4
         static void Main(string[] args)
         {
             string[] cities = {"Калининград", "Гомель", "Слуцк"};
-            Mail mail1 = new Mail("Слуцк", "Гомельская", 74, 35, "Глущенко В.В.", 30);
-            Mail mail2 = new Mail("Гомель", "Гомельская", 74, 35, "Глуще", 30);
-            Mail mail3 = new Mail("Гомель", "Гомельская", 74, 35, "Глуще", 30);
+            Mail mail1 = new Mail("Слуцк", "Гомельская", 74, 35, "Глущенко В.В.");
+            Mail mail2 = new Mail("Гомель", "Гомельская", 74, 35, "Глуще");
+            Mail mail3 = new Mail("Гомель", "Гомельская", 74, 35, "Глуще");
             Mail.CheckMailsFrom(cities);
             Mail.FindMailsWithSameAdresses();
         }
