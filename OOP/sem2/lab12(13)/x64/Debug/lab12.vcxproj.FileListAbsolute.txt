@@ -1,2 +1,0 @@
-C:\Users\Анна\OneDrive\Документы\GitHub\UniProgramming\OOP\sem2\lab12\x64\Debug\lab12.exe
-C:\Users\azare\Documents\GitHub\UniProgramming\OOP\sem2\lab12\x64\Debug\lab12.exe

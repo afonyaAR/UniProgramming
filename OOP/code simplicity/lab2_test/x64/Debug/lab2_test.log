@@ -1,5 +1,0 @@
-﻿  pch.cpp
-  lab2_test.cpp
-C:\Users\azare\Documents\GitHub\UniProgramming\OOP\code simplicity\lab2\lab2.cpp(37,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-C:\Users\azare\Documents\GitHub\UniProgramming\OOP\code simplicity\lab2\lab2.cpp(59,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-C:\Users\azare\Documents\GitHub\UniProgramming\OOP\code simplicity\lab2_test\lab2_test.cpp(38): error C4700: использована неинициализированная локальная переменная "matrix"
